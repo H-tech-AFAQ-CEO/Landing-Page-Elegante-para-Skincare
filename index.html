@@ -117,7 +117,7 @@ nav a.link.active{color:var(--rosa-oscuro)}
 .marquee-track{display:inline-flex;animation:cinta 28s linear infinite}
 .marquee:hover .marquee-track{animation-play-state:paused}
 .marquee span{font-family:'Cormorant Garamond',serif;font-size:1.5rem;padding:0 1.6rem;font-style:italic}
-.marquee span::after{content:"✦";margin-left:3.2rem;font-size:.9rem;color:var(--rosa)}
+.marquee span::after{content:"";display:inline-block;width:9px;height:9px;margin-left:3.2rem;background:var(--rosa);transform:rotate(45deg);vertical-align:middle}
 @keyframes cinta{to{transform:translateX(-50%)}}
 
 /* ---------- Servicios: tarjetas 3D que giran ---------- */
@@ -271,6 +271,26 @@ footer a{color:var(--rosa-fuerte)}
   #preloader{display:none}
 }
 
+
+/* ---------- Iconos premium (SVG de línea fina) ---------- */
+.mini{width:1.05em;height:1.05em;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.15em;display:inline-block}
+.badge .mini{color:var(--rosa-oscuro);width:1em;height:1em;margin-right:2px}
+.ic svg,.ico svg{stroke:var(--rosa-oscuro);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ic svg{width:34px;height:34px;transition:transform .6s var(--ease)}
+.ben:hover .ic svg{transform:scale(1.18) rotate(-8deg)}
+.ben .ic{background:linear-gradient(145deg,#fff,var(--rosa));box-shadow:inset 0 0 0 1px rgba(184,100,124,.25),0 10px 24px rgba(184,100,124,.22)}
+.ico{background:linear-gradient(145deg,#fff,var(--rosa));box-shadow:inset 0 0 0 1px rgba(184,100,124,.25)}
+.ico svg{width:22px;height:22px}
+.info-item:hover .ico svg{animation:latido .8s}
+@keyframes latido{40%{transform:scale(1.25)}}
+.stars{display:flex;justify-content:center;gap:5px;margin-bottom:.9rem;letter-spacing:0}
+.stars svg{width:20px;height:20px;fill:#d9a441;stroke:none;filter:drop-shadow(0 2px 3px rgba(217,164,65,.4))}
+.sello b svg.big{width:46px;height:46px;fill:#fff;stroke:none;display:block;margin:.3rem auto;animation:latido 2.4s infinite}
+.ctrl button{display:grid;place-items:center}
+.ctrl button svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.back .btn .mini{transition:transform .3s}
+.back .btn:hover .mini{transform:translateX(5px)}
+
 /* ---------- Adaptable ---------- */
 @media(max-width:1000px){
   nav ul{gap:1.1rem}
@@ -333,7 +353,7 @@ footer a{color:var(--rosa-fuerte)}
         <li><a class="link" href="#galeria">Galería</a></li>
         <li><a class="link" href="#testimonios">Opiniones</a></li>
         <li><a class="link" href="#contacto">Contacto</a></li>
-        <li><a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/18090000000?text=Hola%20Maileny%2C%20quiero%20reservar%20una%20cita%20%F0%9F%8C%B8">Reservar cita</a></li>
+        <li><a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/18090000000?text=Hola%20Maileny%2C%20quiero%20reservar%20una%20cita">Reservar cita</a></li>
       </ul>
     </nav>
     <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
@@ -350,7 +370,7 @@ footer a{color:var(--rosa-fuerte)}
       <h1 class="split">Tu piel merece <em>cuidado</em> y ternura</h1>
       <p class="sub reveal" style="--d:.5s">Tratamientos faciales personalizados para que luzcas una piel sana, luminosa y radiante. Agenda tu cita de forma fácil y directa por WhatsApp.</p>
       <div class="hero-btns reveal" style="--d:.7s">
-        <a class="btn btn-wa magnetic" target="_blank" rel="noopener" href="https://wa.me/18090000000?text=Hola%20Maileny%2C%20quiero%20reservar%20una%20cita%20%F0%9F%8C%B8">
+        <a class="btn btn-wa magnetic" target="_blank" rel="noopener" href="https://wa.me/18090000000?text=Hola%20Maileny%2C%20quiero%20reservar%20una%20cita">
           <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.1-.8.9-.9 1.1-.3.2-.6.1a8 8 0 0 1-4-3.5c-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.4 6.4 0 0 0 1.4 3.4 14.6 14.6 0 0 0 5.6 4.9c2 .8 2.8.9 3.8.7a3.2 3.2 0 0 0 2.1-1.5 2.6 2.6 0 0 0 .2-1.5c-.1-.1-.3-.2-.5-.3zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>
           Reservar por WhatsApp
         </a>
@@ -361,8 +381,8 @@ footer a{color:var(--rosa-fuerte)}
       <div class="hero-card" id="heroCard">
         <div class="ring"></div>
         <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80" alt="Productos de cuidado de la piel en tonos rosa" onerror="this.removeAttribute('src')">
-        <div class="badge"><b>Piel radiante</b>Atención personalizada</div>
-        <div class="badge b2"><b>✿ Con cariño</b>Productos de calidad</div>
+        <div class="badge"><b><svg class="mini" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3l1.9 5.6L18.5 10.5l-5.6 1.9L11 18l-1.9-5.6L3.5 10.5l5.6-1.9z"/><path d="M19 15l.8 2.2 2.2.8-2.2.8L19 21l-.8-2.2-2.2-.8 2.2-.8z"/></svg> Piel radiante</b>Atención personalizada</div>
+        <div class="badge b2"><b><svg class="mini" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6C19 16.5 12 21 12 21z"/></svg> Con cariño</b>Productos de calidad</div>
       </div>
     </div>
   </div>
@@ -386,20 +406,20 @@ footer a{color:var(--rosa-fuerte)}
     <!-- EDITA nombres, descripciones y fotos según su oferta real -->
     <div class="cards">
       <div class="flip reveal" style="--d:.0s"><div class="flip-inner">
-        <div class="face front"><img loading="lazy" src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=700&q=80" alt="Limpieza facial profunda"><div class="t"><h3>Limpieza facial profunda</h3><small>VER DETALLES ↻</small></div></div>
-        <div class="face back"><h3>Limpieza facial profunda</h3><p>Elimina impurezas, puntos negros y células muertas para una piel fresca, limpia y renovada.</p><a class="btn" target="_blank" rel="noopener" href="https://wa.me/18090000000?text=Hola%2C%20me%20interesa%20la%20limpieza%20facial%20profunda">Reservar →</a></div>
+        <div class="face front"><img loading="lazy" src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=700&q=80" alt="Limpieza facial profunda"><div class="t"><h3>Limpieza facial profunda</h3><small>VER DETALLES <svg class="mini" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg></small></div></div>
+        <div class="face back"><h3>Limpieza facial profunda</h3><p>Elimina impurezas, puntos negros y células muertas para una piel fresca, limpia y renovada.</p><a class="btn" target="_blank" rel="noopener" href="https://wa.me/18090000000?text=Hola%2C%20me%20interesa%20la%20limpieza%20facial%20profunda">Reservar <svg class="mini" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </div></div>
       <div class="flip reveal" style="--d:.12s"><div class="flip-inner">
-        <div class="face front"><img loading="lazy" src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=700&q=80" alt="Hidratación facial"><div class="t"><h3>Hidratación facial</h3><small>VER DETALLES ↻</small></div></div>
-        <div class="face back"><h3>Hidratación facial</h3><p>Devuelve la humedad y la suavidad a tu piel con productos nutritivos y masajes relajantes.</p><a class="btn" target="_blank" rel="noopener" href="https://wa.me/18090000000?text=Hola%2C%20me%20interesa%20la%20hidrataci%C3%B3n%20facial">Reservar →</a></div>
+        <div class="face front"><img loading="lazy" src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=700&q=80" alt="Hidratación facial"><div class="t"><h3>Hidratación facial</h3><small>VER DETALLES <svg class="mini" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg></small></div></div>
+        <div class="face back"><h3>Hidratación facial</h3><p>Devuelve la humedad y la suavidad a tu piel con productos nutritivos y masajes relajantes.</p><a class="btn" target="_blank" rel="noopener" href="https://wa.me/18090000000?text=Hola%2C%20me%20interesa%20la%20hidrataci%C3%B3n%20facial">Reservar <svg class="mini" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </div></div>
       <div class="flip reveal" style="--d:.24s"><div class="flip-inner">
-        <div class="face front"><img loading="lazy" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=700&q=80" alt="Tratamiento antimanchas"><div class="t"><h3>Tratamiento antimanchas</h3><small>VER DETALLES ↻</small></div></div>
-        <div class="face back"><h3>Tratamiento antimanchas</h3><p>Ayuda a unificar el tono y a mejorar la apariencia de manchas e imperfecciones.</p><a class="btn" target="_blank" rel="noopener" href="https://wa.me/18090000000?text=Hola%2C%20me%20interesa%20el%20tratamiento%20antimanchas">Reservar →</a></div>
+        <div class="face front"><img loading="lazy" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=700&q=80" alt="Tratamiento antimanchas"><div class="t"><h3>Tratamiento antimanchas</h3><small>VER DETALLES <svg class="mini" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg></small></div></div>
+        <div class="face back"><h3>Tratamiento antimanchas</h3><p>Ayuda a unificar el tono y a mejorar la apariencia de manchas e imperfecciones.</p><a class="btn" target="_blank" rel="noopener" href="https://wa.me/18090000000?text=Hola%2C%20me%20interesa%20el%20tratamiento%20antimanchas">Reservar <svg class="mini" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </div></div>
       <div class="flip reveal" style="--d:.36s"><div class="flip-inner">
-        <div class="face front"><img loading="lazy" src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=700&q=80" alt="Asesoría de rutina"><div class="t"><h3>Asesoría de rutina</h3><small>VER DETALLES ↻</small></div></div>
-        <div class="face back"><h3>Asesoría de rutina</h3><p>Te recomendamos una rutina de cuidado diaria sencilla y adecuada para tu tipo de piel.</p><a class="btn" target="_blank" rel="noopener" href="https://wa.me/18090000000?text=Hola%2C%20me%20interesa%20una%20asesor%C3%ADa%20de%20rutina">Reservar →</a></div>
+        <div class="face front"><img loading="lazy" src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=700&q=80" alt="Asesoría de rutina"><div class="t"><h3>Asesoría de rutina</h3><small>VER DETALLES <svg class="mini" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg></small></div></div>
+        <div class="face back"><h3>Asesoría de rutina</h3><p>Te recomendamos una rutina de cuidado diaria sencilla y adecuada para tu tipo de piel.</p><a class="btn" target="_blank" rel="noopener" href="https://wa.me/18090000000?text=Hola%2C%20me%20interesa%20una%20asesor%C3%ADa%20de%20rutina">Reservar <svg class="mini" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </div></div>
     </div>
   </div>
@@ -411,10 +431,10 @@ footer a{color:var(--rosa-fuerte)}
     <span class="eyebrow reveal">¿Por qué elegirnos?</span>
     <h2 class="title split">Un cuidado hecho para ti</h2>
     <div class="ben-grid">
-      <div class="tilt ben reveal" style="--d:0s"><div class="ic">🌸</div><h3>Atención personalizada</h3><p>Escuchamos lo que tu piel necesita antes de recomendar cualquier tratamiento.</p><div class="glare"></div></div>
-      <div class="tilt ben reveal" style="--d:.12s"><div class="ic">✨</div><h3>Productos de calidad</h3><p>Trabajamos con productos seleccionados para el cuidado de tu piel.</p><div class="glare"></div></div>
-      <div class="tilt ben reveal" style="--d:.24s"><div class="ic">🤍</div><h3>Ambiente de confianza</h3><p>Un espacio limpio, tranquilo y cálido para que te sientas cómoda.</p><div class="glare"></div></div>
-      <div class="tilt ben reveal" style="--d:.36s"><div class="ic">💬</div><h3>Reserva fácil</h3><p>Agenda tu cita directamente por WhatsApp, sin complicaciones.</p><div class="glare"></div></div>
+      <div class="tilt ben reveal" style="--d:0s"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6C19 16.5 12 21 12 21z"/></svg></div><h3>Atención personalizada</h3><p>Escuchamos lo que tu piel necesita antes de recomendar cualquier tratamiento.</p><div class="glare"></div></div>
+      <div class="tilt ben reveal" style="--d:.12s"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3l1.9 5.6L18.5 10.5l-5.6 1.9L11 18l-1.9-5.6L3.5 10.5l5.6-1.9z"/><path d="M19 15l.8 2.2 2.2.8-2.2.8L19 21l-.8-2.2-2.2-.8 2.2-.8z"/></svg></div><h3>Productos de calidad</h3><p>Trabajamos con productos seleccionados para el cuidado de tu piel.</p><div class="glare"></div></div>
+      <div class="tilt ben reveal" style="--d:.24s"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div><h3>Ambiente de confianza</h3><p>Un espacio limpio, tranquilo y cálido para que te sientas cómoda.</p><div class="glare"></div></div>
+      <div class="tilt ben reveal" style="--d:.36s"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.5L3 21l1.6-5.3A8.5 8.5 0 1 1 21 12z"/><path d="M8.5 11.5h7M8.5 14.5h4"/></svg></div><h3>Reserva fácil</h3><p>Agenda tu cita directamente por WhatsApp, sin complicaciones.</p><div class="glare"></div></div>
     </div>
   </div>
 </section>
@@ -450,7 +470,7 @@ footer a{color:var(--rosa-fuerte)}
       <div class="paso reveal" style="--d:.3s"><div class="num">2</div><h3>Elige tu horario</h3><p>Te confirmamos disponibilidad y el tratamiento ideal para ti.</p></div>
       <div class="paso reveal" style="--d:.5s"><div class="num">3</div><h3>Disfruta tu cuidado</h3><p>Ven a Bonao y relájate mientras cuidamos tu piel con cariño.</p></div>
     </div>
-    <p class="reveal" style="margin-top:3rem"><a class="btn btn-wa magnetic" target="_blank" rel="noopener" href="https://wa.me/18090000000?text=Hola%20Maileny%2C%20quiero%20reservar%20una%20cita%20%F0%9F%8C%B8">Empezar ahora</a></p>
+    <p class="reveal" style="margin-top:3rem"><a class="btn btn-wa magnetic" target="_blank" rel="noopener" href="https://wa.me/18090000000?text=Hola%20Maileny%2C%20quiero%20reservar%20una%20cita">Empezar ahora</a></p>
   </div>
 </section>
 
@@ -475,7 +495,7 @@ footer a{color:var(--rosa-fuerte)}
     </div>
   </div>
   <div class="container center">
-    <div class="ctrl"><button id="prev" aria-label="Anterior">←</button><button id="next" aria-label="Siguiente">→</button></div>
+    <div class="ctrl"><button id="prev" aria-label="Anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button id="next" aria-label="Siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
     <p style="margin-top:2rem"><a class="btn btn-line" href="https://www.instagram.com/maileny_skincare/" target="_blank" rel="noopener">Seguir en Instagram @maileny_skincare</a></p>
   </div>
 </section>
@@ -492,7 +512,7 @@ footer a{color:var(--rosa-fuerte)}
         <p>Pregunta por nuestra promoción vigente en tratamientos faciales. Escríbenos por WhatsApp y te contamos los detalles.</p>
         <a class="btn magnetic" target="_blank" rel="noopener" href="https://wa.me/18090000000?text=Hola%2C%20quiero%20saber%20sobre%20la%20promoci%C3%B3n%20del%20mes">Quiero la promo</a>
       </div>
-      <div class="sello"><div>Promo<b>♡</b>especial</div></div>
+      <div class="sello"><div>Promo<b><svg class="big" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6C19 16.5 12 21 12 21z"/></svg></b>especial</div></div>
     </div>
   </div>
 </section>
@@ -504,9 +524,9 @@ footer a{color:var(--rosa-fuerte)}
     <h2 class="title split">Lo que dicen nuestras clientas</h2>
     <!-- IMPORTANTE: estos textos son de EJEMPLO. Sustitúyalos por opiniones reales de clientas (con su permiso). -->
     <div class="slider reveal" id="slider">
-      <div class="slide active"><div class="stars">★★★★★</div><p>Texto de ejemplo: aquí irá el comentario real de una clienta sobre su experiencia y los resultados en su piel.</p><h4>— Nombre de la clienta</h4></div>
-      <div class="slide"><div class="stars">★★★★★</div><p>Texto de ejemplo: aquí irá el comentario real de una clienta sobre la atención recibida en el local.</p><h4>— Nombre de la clienta</h4></div>
-      <div class="slide"><div class="stars">★★★★★</div><p>Texto de ejemplo: aquí irá el comentario real de una clienta que recomienda el servicio.</p><h4>— Nombre de la clienta</h4></div>
+      <div class="slide active"><div class="stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg></div><p>Texto de ejemplo: aquí irá el comentario real de una clienta sobre su experiencia y los resultados en su piel.</p><h4>— Nombre de la clienta</h4></div>
+      <div class="slide"><div class="stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg></div><p>Texto de ejemplo: aquí irá el comentario real de una clienta sobre la atención recibida en el local.</p><h4>— Nombre de la clienta</h4></div>
+      <div class="slide"><div class="stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg></div><p>Texto de ejemplo: aquí irá el comentario real de una clienta que recomienda el servicio.</p><h4>— Nombre de la clienta</h4></div>
     </div>
     <div class="dots" id="dots"></div>
   </div>
@@ -532,7 +552,7 @@ footer a{color:var(--rosa-fuerte)}
   <div class="container">
     <h2 class="split">¿Lista para consentir tu piel?</h2>
     <p class="reveal">Reserva tu cita hoy mismo. Respondemos directamente por WhatsApp.</p>
-    <a class="btn magnetic reveal" target="_blank" rel="noopener" href="https://wa.me/18090000000?text=Hola%20Maileny%2C%20quiero%20reservar%20una%20cita%20%F0%9F%8C%B8">Reservar mi cita</a>
+    <a class="btn magnetic reveal" target="_blank" rel="noopener" href="https://wa.me/18090000000?text=Hola%20Maileny%2C%20quiero%20reservar%20una%20cita">Reservar mi cita</a>
   </div>
 </div>
 
@@ -543,13 +563,13 @@ footer a{color:var(--rosa-fuerte)}
     <h2 class="title split">Visítanos en Bonao</h2>
     <div class="contacto-grid">
       <div class="info">
-        <div class="info-item reveal left"><div class="ico">📍</div><div><b>Ubicación</b><span>Bonao, Monseñor Nouel, República Dominicana<br>(agregar dirección exacta)</span></div></div>
-        <div class="info-item reveal left" style="--d:.1s"><div class="ico">💬</div><div><b>WhatsApp</b><span><a href="https://wa.me/18090000000" target="_blank" rel="noopener">+1 (809) 000-0000</a> (agregar número real)</span></div></div>
-        <div class="info-item reveal left" style="--d:.2s"><div class="ico">📸</div><div><b>Instagram</b><span><a href="https://www.instagram.com/maileny_skincare/" target="_blank" rel="noopener">@maileny_skincare</a></span></div></div>
-        <div class="info-item reveal left" style="--d:.3s"><div class="ico">🕐</div><div><b>Horario</b><span>Lunes a sábado, con cita previa<br>(ajustar horario real)</span></div></div>
-        <a class="btn btn-wa magnetic reveal" style="justify-content:center;--d:.4s" target="_blank" rel="noopener" href="https://wa.me/18090000000?text=Hola%20Maileny%2C%20quiero%20reservar%20una%20cita%20%F0%9F%8C%B8">Reservar por WhatsApp</a>
+        <div class="info-item reveal left"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div><div><b>Ubicación</b><span>Bonao, Monseñor Nouel, República Dominicana<br>(agregar dirección exacta)</span></div></div>
+        <div class="info-item reveal left" style="--d:.1s"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.5L3 21l1.6-5.3A8.5 8.5 0 1 1 21 12z"/><path d="M8.5 11.5h7M8.5 14.5h4"/></svg></div><div><b>WhatsApp</b><span><a href="https://wa.me/18090000000" target="_blank" rel="noopener">+1 (809) 000-0000</a> (agregar número real)</span></div></div>
+        <div class="info-item reveal left" style="--d:.2s"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></div><div><b>Instagram</b><span><a href="https://www.instagram.com/maileny_skincare/" target="_blank" rel="noopener">@maileny_skincare</a></span></div></div>
+        <div class="info-item reveal left" style="--d:.3s"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><b>Horario</b><span>Lunes a sábado, con cita previa<br>(ajustar horario real)</span></div></div>
+        <a class="btn btn-wa magnetic reveal" style="justify-content:center;--d:.4s" target="_blank" rel="noopener" href="https://wa.me/18090000000?text=Hola%20Maileny%2C%20quiero%20reservar%20una%20cita">Reservar por WhatsApp</a>
       </div>
-      <!-- MAPA: para el local exacto, en Google Maps pulse Compartir → Insertar un mapa y reemplace el src -->
+      <!-- MAPA: para el local exacto, en Google Maps pulse Compartir, Insertar un mapa y reemplace el src -->
       <div class="mapa reveal right">
         <iframe loading="lazy" title="Ubicación de Maileny Skincare en Bonao" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Bonao,+Monse%C3%B1or+Nouel,+Rep%C3%BAblica+Dominicana&output=embed"></iframe>
       </div>
@@ -565,7 +585,7 @@ footer a{color:var(--rosa-fuerte)}
   </div>
 </footer>
 
-<a class="wa-float" target="_blank" rel="noopener" aria-label="Reservar por WhatsApp" href="https://wa.me/18090000000?text=Hola%20Maileny%2C%20quiero%20reservar%20una%20cita%20%F0%9F%8C%B8">
+<a class="wa-float" target="_blank" rel="noopener" aria-label="Reservar por WhatsApp" href="https://wa.me/18090000000?text=Hola%20Maileny%2C%20quiero%20reservar%20una%20cita">
   <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.1-.8.9-.9 1.1-.3.2-.6.1a8 8 0 0 1-4-3.5c-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.4 6.4 0 0 0 1.4 3.4 14.6 14.6 0 0 0 5.6 4.9c2 .8 2.8.9 3.8.7a3.2 3.2 0 0 0 2.1-1.5 2.6 2.6 0 0 0 .2-1.5c-.1-.1-.3-.2-.5-.3zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>
 </a>
 
